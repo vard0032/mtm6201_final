@@ -1,0 +1,325 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ===== My CSS ===== */
+
+/* Root Variables */
+
+:root {
+    --background-color: white;
+    --primary-color:  rgba(13, 81, 62);
+    --accent-color-1:  rgba(13, 81, 62, 0.683);
+    --accent-color-2: #C4E0A7;
+    --text-color: black;
+    --font-h1: 'Cinzel Decorative', cursive;
+    --font-h2-h3: 'Julius Sans One', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+    --max-width: 1000px;
+ }
+ 
+
+/* ==== General Styles ==== */
+body {
+    color: #333;
+    font-size: 1rem; /* Default body text */
+    font-weight: 400;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: #333; /* Clean, readable dark grey */
+    font-size: 1.2rem;
+}
+h1 {
+    font-size: 2.5rem; /* Big and bold, for hero titles */
+
+    font-family: var(--font-h1);
+}
+
+h2 {
+    font-size: 2rem; /* Section titles */
+    font-weight: 700;
+    font-family: var(--font-h2-h3);
+    border-bottom: 2px solid black; 
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem; /* Smaller headings */
+    font-weight: 500;
+    font-family: var(--font-h2-h3);
+}
+
+
+/* ==== Navbar ==== */
+.navbar {
+    background-color: var(--accent-color-1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    
+}
+
+.navbar-brand {
+    font-family: var(--font-h1);
+    color: white;
+    font-size: 2rem;
+}
+
+.navbar-brand img {
+    object-fit: cover;
+}
+
+.navbar-toggler {
+    border-color: #ccc;
+  }
+  
+.navbar-nav .nav-link {
+    color: white;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+  .navbar-nav .nav-link:hover {
+    color: black; 
+  }
+
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color-2);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .nav-icon-link {
+    font-size: 1.5rem;
+    padding: 5px;
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-icon-link:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+  .nav-icon-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color-2);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .nav-icon-link:hover::after {
+    width: 100%;
+  }
+  
+/* Hero Section */
+.hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    object-fit: cover; /* Crops the image to fit the container */
+    object-position: center; /* Adjust to focus on the best part */
+}
+
+.hero-text {
+    position: absolute;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:var(--accent-color-1);
+    padding: 30px;
+}
+.hero-btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    background-color: #ffffffbe;
+    font-weight: bold;
+    color: #0D513E;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px ;
+    border: none;
+    width: 20%;
+    font-size: 1.5rem;
+    font-family: var(--font-body);
+}
+
+.hero-button :hover { 
+    background-color: var(--accent-color-1);
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Hours of Operation */
+.container h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.menu-img-style {
+    height: 300px; /* Adjust this to get that long & narrow effect */
+    width: 98%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.menu-image-container .btn {
+    background-color: #ffffffbe;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border: none;
+    width: 20%;
+    font-size: 2rem;
+}
+
+.menu-image-container .btn:hover {
+    background-color: var(--accent-color-1);
+    color: white;
+    border-color: white;
+}
+
+.equal-img {
+    height: 750px; /* adjust height for perfect match */
+    object-fit: cover;
+    width: 100%;
+}
+
+.rounded-img {
+    border-radius: 15px;
+}
+
+
+/* Reservation & Location */
+.container form input, .container form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-check {
+    width: 20px;
+    height: 20px;
+    align-items: center; 
+    gap: 1rem; 
+    padding-top: 30px;
+  }
+  
+.form-check-label {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color); 
+    border-color: var(--primary-color);
+  }
+
+.btn-success {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 10px 40px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.text-center p {
+    margin: 15px;
+}
+.green-box {
+    background-color: var(--accent-color-2); /* subtle light green bg */
+    border-radius: 10px;
+}
+
+/* Footer */
+
+.icon-link {
+    font-size: 2.5rem;
+    padding: 10px;
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  .icon-link:hover {
+    color: black;
+    text-decoration: none;
+  }
+
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;  
+}
