@@ -66,18 +66,21 @@ table {
  
 
 /* ==== General Styles ==== */
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     color: #333;
-    font-size: 1rem; /* Default body text */
+    font-size: 1rem; 
     font-weight: 400;
     font-family: var(--font-body);
     line-height: 1.6;
-    color: #333; /* Clean, readable dark grey */
+    color: #333; 
     font-size: 1.2rem;
 }
 h1 {
-    font-size: 2.5rem; /* Big and bold, for hero titles */
-
+    font-size: 2.5rem; 
     font-family: var(--font-h1);
 }
 
@@ -93,8 +96,22 @@ h2 {
 h3 {
     font-size: 1.5rem; /* Smaller headings */
     font-weight: 500;
-    font-family: var(--font-h2-h3);
+    font-family: var(--font-h2-h3); 
 }
+/* Mobile-friendly tweaks */
+@media (max-width: 768px) {
+    h1 {
+      font-size: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
 
 
 /* ==== Navbar ==== */
@@ -174,30 +191,88 @@ h3 {
     width: 100%;
   }
   
-/* Hero Section */
+/* ===== Hero Section ===== */
+
 .hero-section {
     position: relative;
-    text-align: center;
-    color: white;
-}
-
-.hero-section img {
     width: 100%;
-    height: 500px; /* Adjust height as needed */
-    object-fit: cover; /* Crops the image to fit the container */
-    object-position: center; /* Adjust to focus on the best part */
-}
+    overflow: hidden;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: 60vh; 
+    object-fit: cover;
+  }
 
-.hero-text {
+  
+  .hero-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
+    height: 120%;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  
+  .hero-overlay h1 {
+    background: var(--accent-color-1);
+    padding: 20px 30px;
     font-size: 3rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background:var(--accent-color-1);
-    padding: 30px;
-}
-.hero-btn {
+    font-family: var(--font-h1);
+    margin-bottom: 20px;
+  }
+  
+  .hero-btn {
+    background-color: #ffffffbe;
+    font-weight: bold;
+    color: #0D513E;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.25rem;
+    font-family: var(--font-body);
+  }
+  
+  .hero-btn:hover {
+    background-color: var(--accent-color-1);
+    color: white;
+  }
+  
+  /* ==== Responsive Styling For hero section ===== */
+  @media (max-width: 768px) {
+    .hero-img {
+      height: 40vh;
+    }
+  
+    .hero-overlay h1 {
+      font-size: 2rem;
+      padding: 15px 20px;
+    }
+  
+    .hero-btn {
+      font-size: 1rem;
+      padding: 8px 16px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .hero-img {
+      height: 75vh;
+    }
+  }
+
+  /* Responsize styles for headings */
+  
+/* ==== Menu page adjustments ==== */
+
+.menu-hero-btn {
     position: absolute;
     top: 70%;
     left: 50%;
@@ -209,25 +284,122 @@ h3 {
     transition: all 0.3s ease;
     border-radius: 5px ;
     border: none;
-    width: 20%;
+    width: 40%;
     font-size: 1.5rem;
     font-family: var(--font-body);
 }
 
-.hero-button :hover { 
-    background-color: var(--accent-color-1);
-    color: white;
-    padding: 10px 20px;
+.menu-hero-text {
+    position: absolute;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:var(--accent-color-1);
+    padding: 15px;
+    width: 20%;
 }
 
-/* Hours of Operation */
+/* ==== Menu page nav ==== */
+
+.menu-nav-container {
+    background-color: var(--accent-color-2);
+    max-width: 1200px; 
+    margin: 5% auto;   
+    padding: 10px 20px; 
+  }
+  
+  .menu-link {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    display: inline-block;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  .menu-link:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+
+  /* ====  Menu Page Appetizer card grid ==== */
+
+  .card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 2px solid #d9ead3;
+  }
+  
+  .card-title {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.1rem;
+  }
+  
+  .card-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.95rem;
+  }
+  
+  .btn-success {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+  }
+  
+  .btn-success:hover {
+    background-color: var(--accent-color-2);
+  }
+  
+/* ==== Mains Carousel ==== */
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+.carousel .card-img-top {
+    height: 450px;
+    object-fit: cover;
+  }
+  
+  .carousel .card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 10px;
+  }
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+/* ==== Hours of Operation ==== */
+
 .container h2 {
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 .menu-img-style {
-    height: 300px; /* Adjust this to get that long & narrow effect */
+    height: 300px;
     width: 98%;
     object-fit: cover;
     border-radius: 10px;
@@ -251,7 +423,7 @@ h3 {
 }
 
 .equal-img {
-    height: 750px; /* adjust height for perfect match */
+    height: 750px; 
     object-fit: cover;
     width: 100%;
 }
@@ -261,7 +433,8 @@ h3 {
 }
 
 
-/* Reservation & Location */
+/* ==== Reservation & Location ==== */
+
 .container form input, .container form textarea {
     width: 100%;
     padding: 10px;
@@ -300,11 +473,87 @@ h3 {
     margin: 15px;
 }
 .green-box {
-    background-color: var(--accent-color-2); /* subtle light green bg */
+    background-color: var(--accent-color-2); 
     border-radius: 10px;
 }
 
-/* Footer */
+/* ==== Our Mission Image ==== */
+.mission-img {
+    border-radius: 20px;
+    object-fit: cover;
+    background-color: var(--accent-color-2);
+    padding: 20px;
+    width: 100%;
+    height: auto;
+  }
+  .blockquote {
+    font-style: italic;
+    font-family: var(--font-h2-h3);
+  }
+
+  /* ==== Our staff section ==== */
+
+  .card-img-top {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+  }
+
+/* ==== Sustainability button ==== */
+
+.sustainability-button {
+    background-color: var(--accent-color-1);
+    padding: 40px;
+    color: white;
+    font-family: var(--font-h2-h3);
+    font-size: 1.5rem;
+}
+
+/*  ==== About page bottom grid ==== */
+
+.custom-img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px; 
+  }
+
+  /* ==== Blog Posts ==== */
+
+  .blog-post {
+    background-color: var(--accent-color-2);
+    padding: 10px;
+  }
+
+  /* ==== Hover for social media icons ==== */
+
+  .social-link {
+    font-size: 1.5rem; 
+    color: #000; 
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .social-link i {
+    font-size: 1.5rem; 
+    margin-right: 8px; 
+  }
+  
+  .social-link:hover {
+    color: var(--accent-color-2); 
+  }
+
+  /* ==== Focus Styling ==== */
+  .btn:focus, .menu-link:focus {
+    outline: 3px solid plum;
+    outline-offset: 2px;
+  }
+
+/* ==== Footer ==== */
 
 .icon-link {
     font-size: 2.5rem;
